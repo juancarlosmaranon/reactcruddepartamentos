@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export default class MenuDepartamentos extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg bg-light">
+            <nav className="navbar navbar-expand-lg bg-light text-info">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">CRUD</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,7 @@ export default class MenuDepartamentos extends Component {
                                     to="/">Departamentos</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="#">Create</NavLink>
+                                <NavLink className="nav-link" to="/create">Create</NavLink>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

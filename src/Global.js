@@ -1,6 +1,5 @@
 var Global = {
-    urlDepartamentos : "https://apicruddepartamentoscore.azurewebsites.net/index.html",
-
+    urlDepartamentos : "https://apicruddepartamentoscore.azurewebsites.net/",
 }
 
 export default Global;
