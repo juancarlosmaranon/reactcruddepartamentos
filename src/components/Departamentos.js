@@ -46,8 +46,9 @@ export default class Departamentos extends Component {
                                 <th>Numeros</th>
                                 <th>Nombre</th>
                                 <th>Localidad</th>
-                                <th></th>
-                                <th></th>
+                                <th>Insertar</th>
+                                <th>Borrar</th>
+                                <th>Modificar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,6 +67,10 @@ export default class Departamentos extends Component {
                                             <td>
                                                 <NavLink to={"/delete/"+departamento.numero} 
                                                 className="btn btn-danger">Borrar</NavLink>
+                                            </td>
+                                            <td>
+                                                <NavLink to={"/update/"+departamento.numero} 
+                                                className="btn btn-info">Modificar</NavLink>
                                             </td>
                                         </tr>
                                     )
