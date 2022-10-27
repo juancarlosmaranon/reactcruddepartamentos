@@ -7,6 +7,7 @@ import CrearDepartamentos from './components/CrearDepartamentos'
 import DetallesDepartamento from './components/DetallesDepartamento'
 import DeleteDepartamentos from './components/DeleteDepartamentos'
 import UpdateDepartamento from './components/UpdateDepartamento'
+import MostrarDepartamentos from './components/MostrarDepartamentos'
 
 export default class Router extends Component {
 
@@ -32,6 +33,13 @@ export default class Router extends Component {
             <UpdateDepartamento id={iddepartamento}/>
         )
     }
+
+    function MostrarDepartamentosElement(){
+        var {idmostrar} = useParams();
+        return(
+          <MostrarDepartamentos idmostrar={idmostrar}/>
+        )
+    }
     return (
       <BrowserRouter>
         <MenuDepartamentos/>
@@ -41,6 +49,7 @@ export default class Router extends Component {
             <Route path='/details/:num/:nom/:loc' element={<DetallesDepartamentoElement/>}/>
             <Route path='/delete/:id' element={<DeleteDepartamentosElement/>}/>
             <Route path='/update/:iddepartamento' element={<UpdateDepartamentoElement/>}/>
+            <Route path='/mostrar/:idmostrar' element={<MostrarDepartamentosElement/>}/>
         </Routes>
       </BrowserRouter>
     )

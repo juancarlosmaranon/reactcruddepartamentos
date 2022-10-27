@@ -1,7 +1,33 @@
 import React, { Component } from 'react'
+import axios from 'axios';
+import Global from '../Global';
 import { NavLink } from 'react-router-dom'
 
 export default class MenuDepartamentos extends Component {
+
+    state = {
+        oficio: [],
+        status: false
+    }
+
+    mostrarEmpleados = () => {
+
+        var request = 'Api/Departamentos';
+        var url = Global.urlDepartamentos + request;
+        axios.get(url).then(response => {
+            console.log(response.data);
+            this.setState({
+                oficio: response.data,
+                status: true
+            });
+        });
+
+    }
+
+    componentDidMount = () => {
+        this.mostrarEmpleados();
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg bg-light text-info">
@@ -20,14 +46,20 @@ export default class MenuDepartamentos extends Component {
                                 <NavLink className="nav-link" to="/create">Create</NavLink>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Acciones
-                                </a>
+                                <NavLink className="nav-link dropdown-toggle" to="/mostrar"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Selecionar departamentos
+                                </NavLink>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                    {
+                                        this.state.status == true &&
+                                        this.state.oficio.map((oficio, index) => {
+                                            return (
+                                                <li key={index}><NavLink className="dropdown-item"
+                                                    to={"/mostrar/" + oficio.numero}>{oficio.nombre}</NavLink></li>
+                                            )
+                                        })
+                                    }
                                 </ul>
                             </li>
                         </ul>
